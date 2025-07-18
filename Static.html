@@ -27,19 +27,19 @@
 <body class="bg-white">
 
     <!-- Header -->
-    <header class="bg-primary-dark text-white salon-header">
+    <header class="bg-primary-dark text-white salon-header hidden sm:block">
         <div class="container mx-auto px-2 sm:px-4 py-3">
             <div class="flex flex-col sm:flex-row justify-center sm:justify-end gap-2 sm:gap-11 items-center">
                 <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 gap-2 sm:gap-6 h-auto sm:h-8">
                     <div class="flex items-center space-x-2 w-auto sm:w-32 tracking-normal leading-2 gap-3 salon-location">
                         <i class="fas fa-map-marker-alt text-sm"></i>
-                        <span class="text-xs sm:text-sm text-center sm:text-left">6000 Zurich, Switzerland</span>
+                        <span class="text-xs lg:text-sm text-center sm:text-left">6000 Zurich, Switzerland</span>
                     </div>
                     <div class="flex items-center space-x-2 w-auto sm:w-46 tracking-normal leading-2 gap-3 salon-hours">
                         <i class="fas fa-clock text-sm"></i>
                         <div class="text-center sm:text-left">
-                            <div class="text-xs sm:text-sm">Tuesday - Sunday 9:00 am - 7:00 pm</div>
-                            <div class="text-xs sm:text-sm">Saturday & Monday Closed</div>
+                            <div class="text-xs lg:text-sm">Tuesday - Sunday 9:00 am - 7:00 pm</div>
+                            <div class="text-xs lg:text-sm">Saturday & Monday Closed</div>
                         </div>
                     </div>
                 </div>
@@ -53,14 +53,19 @@
     </header>
 
     <!-- Navigation -->
-    <nav class="bg-primary-dark border border-t-primary text-white shadow-lg salon-nav">
+    <nav class="bg-primary-dark border border-t-primary text-white shadow-lg salon-nav sticky top-0 relative z-[99]">
         <div class="container mx-auto px-2 sm:px-4">
-            <div class="flex flex-col sm:flex-row justify-between items-center h-auto sm:h-16 py-3 sm:py-0">
-                <div class="flex items-center salon-logo mb-3 sm:mb-0">
+            <div class="flex sm:flex-row justify-between items-center h-auto sm:h-16 py-3 sm:py-0">
+                
+                <div class="flex items-center salon-logo mb-3 sm:mb-0 gap-2">
+                    <div class="block lg:hidden">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMgMTJIMjFNMyA2SDIxTTMgMThIMjEiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=" alt="Menu" class="w-6 h-6 cursor-pointer" id="mobileMenuBtn">
+                    </div>
                     <h1 class="text-xl sm:text-2xl font-bold">Body Craft</h1>
-                    <span class="text-xs sm:text-sm ml-2 opacity-75">Beauty Salon</span>
+                    <span class="hidden sm:block text-xs sm:text-sm ml-2 opacity-75">Beauty Salon</span>
                 </div>
-                <div class="flex flex-wrap justify-center sm:justify-start space-x-2 sm:space-x-8 salon-menu mb-3 sm:mb-0">
+                
+                <div class="flex flex-wrap justify-center sm:justify-start space-x-2 sm:space-x-8 salon-menu mb-3 sm:mb-0 hidden lg:flex">
                     <a href="#" class="hover:text-gray-200 transition-colors text-xs sm:text-base py-1">HOME</a>
                     <a href="#" class="hover:text-gray-200 transition-colors text-xs sm:text-base py-1">SERVICES</a>
                     <a href="#" class="hover:text-gray-200 transition-colors text-xs sm:text-base py-1">OUR WORK</a>
@@ -68,6 +73,7 @@
                     <a href="#" class="hover:text-gray-200 transition-colors text-xs sm:text-base py-1">PRICES</a>
                     <a href="#" class="hover:text-gray-200 transition-colors text-xs sm:text-base py-1">CONTACT US</a>
                 </div>
+                
                 <div class="flex items-center space-x-4 salon-phone">
                     <i class="fas fa-phone text-sm"></i>
                     <span class="font-semibold text-sm sm:text-base">555 222 53 42</span>
@@ -76,14 +82,81 @@
         </div>
     </nav>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenuOverlay" class="fixed inset-0 z-[100] menu-overlay menu-slide-out lg:hidden">
+        <div class="flex h-full">
+            <!-- Menu Panel -->
+            <div class="w-80 bg-primary-dark text-white h-full shadow-2xl">
+                <!-- Header -->
+                <div class="flex items-center justify-between p-6 border-b border-gray-700">
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-2xl font-bold">Body Craft</h2>
+                        <span class="text-sm opacity-75">Beauty Salon</span>
+                    </div>
+                    <button id="closeMenuBtn" class="text-white hover:text-gray-300 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="py-6">
+                    <nav class="space-y-2">
+                        <a href="./Static.html" class="flex items-center px-6 py-4 text-white hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-home w-5 h-5 mr-4 group-hover:text-gray-300"></i>
+                            <span class="text-lg font-medium">HOME</span>
+                        </a>
+                        <a href="./Static.html" class="flex items-center px-6 py-4 text-white hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-cut w-5 h-5 mr-4 group-hover:text-gray-300"></i>
+                            <span class="text-lg font-medium">SERVICES</span>
+                        </a>
+                        <a href="./Static.html" class="flex items-center px-6 py-4 text-white hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-images w-5 h-5 mr-4 group-hover:text-gray-300"></i>
+                            <span class="text-lg font-medium">OUR WORK</span>
+                        </a>
+                        <a href="./Static.html" class="flex items-center px-6 py-4 text-white hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-users w-5 h-5 mr-4 group-hover:text-gray-300"></i>
+                            <span class="text-lg font-medium">ABOUT US</span>
+                        </a>
+                        <a href="./Static.html" class="flex items-center px-6 py-4 text-white hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-tag w-5 h-5 mr-4 group-hover:text-gray-300"></i>
+                            <span class="text-lg font-medium">PRICES</span>
+                        </a>
+                        <a href="./Static.html" class="flex items-center px-6 py-4 text-white hover:bg-gray-700 transition-colors group">
+                            <i class="fas fa-envelope w-5 h-5 mr-4 group-hover:text-gray-300"></i>
+                            <span class="text-lg font-medium">CONTACT US</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-700">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-gray-700 p-3 rounded-full">
+                            <i class="fas fa-phone text-white"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-300">Call us now</p>
+                            <p class="text-lg font-semibold">555 222 53 42</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Backdrop -->
+            <div class="flex-1" id="menuBackdrop"></div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section class="relative h-screen bg-cover bg-center overflow-hidden salon-hero">
+    <section class="relative bg-cover bg-center overflow-hidden salon-hero">
         <div class="relative w-full h-full">
             <!-- Slide 1 -->
-            <div class="slide absolute w-full h-full bg-cover bg-center "
+            <div class="slide absolute w-full h-full bg-cover bg-center  "
                 style="background-image: url('images/bg3.jpg');">
                 <div class="absolute inset-0 flex items-center justify-center z-10">
-                    <div class="text-center text-white max-w-xs sm:max-w-md mx-4 salon-content hero">
+                    <div class="text-center text-white sm:max-w-[48rem] mx-4 salon-content hero">
                         <div class="bg-black bg-opacity-50 p-4 sm:p-8 rounded-lg">
                             <h2 class="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4">This Friday only</h2>
                             <h3 class="text-xl sm:text-3xl font-semibold mb-2 sm:mb-4">20% off all makeups!</h3>
@@ -97,7 +170,7 @@
             </div>
 
             <!-- Slide 2 -->
-            <div class="slide absolute w-full h-full bg-cover bg-center "
+            <div class="slide absolute w-full h-full bg-cover bg-center"
                 style="background-image: url('images/bg2.jpg');">
                 <div class="absolute inset-0 flex items-center justify-center z-10">
                     <div class="text-center text-white max-w-xs sm:max-w-md mx-4 salon-content">
@@ -193,7 +266,7 @@
                     <p class="service-description text-sm sm:text-base text-gray-600">With over ten years' experience in the industry, our certified therapists are skilled in all the latest techniques.</p>
                 </div>
             </div>
-            <div class="services-grid-secondary grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mt-8 sm:mt-12">
+            <div class="lg:services-grid-secondary grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mt-8 sm:mt-12">
                 <!-- Service 5 -->
                 <div class="service-card text-center">
                     <div class="service-icon mb-4">
@@ -235,7 +308,7 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section class="portfolio-hero py-8 sm:py-16 bg-primary px-4 sm:px-20 lg:px-40">
+    <section class="portfolio-hero py-8 sm:py-16 bg-primary px-10 sm:px-20 lg:px-40">
         <div class="container mx-auto px-2 sm:px-4">
             <div class="portfolio-header text-center mb-8 sm:mb-12">
                 <h2 class="portfolio-title text-2xl sm:text-3xl font-bold text-white mb-4">Our recently work</h2>
@@ -418,7 +491,7 @@
                 <!-- Instagram -->
                 <div class="footer-column">
                     <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Instagram</h3>
-                    <div class="grid grid-cols-3 gap-1 sm:gap-2">
+                    <div class="instagrid grid grid-cols-3 gap-1 sm:gap-2">
                         <img src="images/abhay-sachan-ToY8nrxy-zU-unsplash.jpg" alt="Instagram 1"
                             class="instagram-image w-full h-16 sm:h-20 md:h-24 object-cover rounded transition-transform hover:scale-105">
                         <img src="images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg" alt="Instagram 2"

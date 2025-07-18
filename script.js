@@ -8,6 +8,67 @@ tailwind.config = {
         }
     }
 }
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const menuBackdrop = document.getElementById('menuBackdrop');
+
+        // Function to open mobile menu
+        function openMobileMenu() {
+            mobileMenuOverlay.classList.remove('menu-slide-out');
+            mobileMenuOverlay.classList.add('menu-slide-in');
+        }
+
+        // Function to close mobile menu
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.remove('menu-slide-in');
+            mobileMenuOverlay.classList.add('menu-slide-out');
+        }
+
+        // Event listeners
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        closeMenuBtn.addEventListener('click', closeMobileMenu);
+        menuBackdrop.addEventListener('click', closeMobileMenu);
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+
+        // Prevent scrolling when menu is open
+        function toggleBodyScroll(disable) {
+            if (disable) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Update event listeners to handle body scroll
+        mobileMenuBtn.addEventListener('click', function() {
+            openMobileMenu();
+            toggleBodyScroll(true);
+        });
+
+        closeMenuBtn.addEventListener('click', function() {
+            closeMobileMenu();
+            toggleBodyScroll(false);
+        });
+
+        menuBackdrop.addEventListener('click', function() {
+            closeMobileMenu();
+            toggleBodyScroll(false);
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) { // lg breakpoint
+                closeMobileMenu();
+                toggleBodyScroll(false);
+            }
+        });
 class HeroSlider {
     constructor() {
         this.slides = document.querySelectorAll('.slide');
@@ -18,6 +79,7 @@ class HeroSlider {
         this.totalSlides = this.slides.length;
         this.isAnimating = false;
         this.autoPlayInterval = null;
+        this.direction = 'forward'; // Track current direction: 'forward' or 'reverse'
 
         this.init();
     }
@@ -41,8 +103,6 @@ class HeroSlider {
     updateSlidePositions() {
         this.slides.forEach((slide, index) => {
             let position;
-            console.log(this.currentSlide);
-            console.log(index);
             
             if (index === this.currentSlide) {
                 position = 0;
@@ -85,17 +145,56 @@ class HeroSlider {
     nextSlide() {
         if (this.isAnimating) return;
 
-        if(this.currentSlide == 2){
-            this.currentSlide = -1;
+        let nextIndex;
+        
+        if (this.direction === 'forward') {
+            if (this.currentSlide === this.totalSlides - 1) {
+                // At last slide, switch to reverse direction
+                this.direction = 'reverse';
+                nextIndex = this.currentSlide - 1;
+            } else {
+                // Continue forward
+                nextIndex = this.currentSlide + 1;
+            }
+        } else { // direction === 'reverse'
+            if (this.currentSlide === 0) {
+                // At first slide, switch to forward direction
+                this.direction = 'forward';
+                nextIndex = this.currentSlide + 1;
+            } else {
+                // Continue reverse
+                nextIndex = this.currentSlide - 1;
+            }
         }
-        const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+
         this.goToSlide(nextIndex);
     }
 
     prevSlide() {
         if (this.isAnimating) return;
 
-        const prevIndex = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+        let prevIndex;
+        
+        if (this.direction === 'forward') {
+            if (this.currentSlide === 0) {
+                // At first slide, switch to reverse direction
+                this.direction = 'reverse';
+                prevIndex = this.currentSlide + 1;
+            } else {
+                // Continue backward (reverse of forward)
+                prevIndex = this.currentSlide - 1;
+            }
+        } else { // direction === 'reverse'
+            if (this.currentSlide === this.totalSlides - 1) {
+                // At last slide, switch to forward direction
+                this.direction = 'forward';
+                prevIndex = this.currentSlide - 1;
+            } else {
+                // Continue backward (reverse of reverse = forward)
+                prevIndex = this.currentSlide + 1;
+            }
+        }
+
         this.goToSlide(prevIndex);
     }
 
