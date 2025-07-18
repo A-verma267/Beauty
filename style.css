@@ -1,0 +1,104 @@
+.slide {
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6));
+    z-index: 1;
+}
+
+.nav-arrow:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.dot.active {
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    transform: scale(1.1);
+}
+:root {
+            --primary: #c53678;
+            --primary-dark: #a12e63;
+        }
+
+.bg-primary { background-color: var(--primary); }
+        .bg-primary-dark { background-color: var(--primary-dark); }
+        .text-primary { color: var(--primary); }
+        .border-primary { border-color: var(--primary); }
+        .hover\:bg-primary-dark:hover { background-color: var(--primary-dark); }
+        
+        /* Custom animation classes */
+        .salon-header { opacity: 0; transform: translateY(-50px); }
+        .salon-nav { opacity: 0; transform: translateY(-30px); }
+        .salon-hero { opacity: 0; }
+        .salon-slide { opacity: 0; transform: scale(1.1); }
+        .salon-content { opacity: 0; transform: translateY(50px); }
+        .salon-button { opacity: 0; transform: translateY(30px); }
+        .salon-nav-arrow { opacity: 0; transform: scale(0.8); }
+        .salon-dots { opacity: 0; transform: translateY(20px); }
+        .salon-location { opacity: 0; transform: translateX(-30px); }
+        .salon-hours { opacity: 0; transform: translateX(-20px); }
+        .salon-social { opacity: 0; transform: translateX(30px); }
+        .salon-logo { opacity: 0; transform: translateX(-40px); }
+        .salon-menu { opacity: 0; transform: translateY(-20px); }
+        .salon-phone { opacity: 0; transform: translateX(40px); }
+        .pricing-hero {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .pricing-divider {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        
+        .pricing-tabs {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .pricing-item {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        .cta-container {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .footer-section {
+            opacity: 0;
+            transform: translateY(60px);
+        }
+        
+        .footer-column {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        .instagram-image {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        
+        .opening-hours {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        
+        .social-icon {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .footer-bottom {
+            opacity: 0;
+            transform: translateY(20px);
+        }

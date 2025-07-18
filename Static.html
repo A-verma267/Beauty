@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Craft - Beauty Salon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'secondary': '#f8f9fa',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-white">
+
+    <!-- Header -->
+    <header class="bg-primary-dark text-white salon-header">
+        <div class="container mx-auto px-2 sm:px-4 py-3">
+            <div class="flex flex-col sm:flex-row justify-center sm:justify-end gap-2 sm:gap-11 items-center">
+                <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 gap-2 sm:gap-6 h-auto sm:h-8">
+                    <div class="flex items-center space-x-2 w-auto sm:w-32 tracking-normal leading-2 gap-3 salon-location">
+                        <i class="fas fa-map-marker-alt text-sm"></i>
+                        <span class="text-xs sm:text-sm text-center sm:text-left">6000 Zurich, Switzerland</span>
+                    </div>
+                    <div class="flex items-center space-x-2 w-auto sm:w-46 tracking-normal leading-2 gap-3 salon-hours">
+                        <i class="fas fa-clock text-sm"></i>
+                        <div class="text-center sm:text-left">
+                            <div class="text-xs sm:text-sm">Tuesday - Sunday 9:00 am - 7:00 pm</div>
+                            <div class="text-xs sm:text-sm">Saturday & Monday Closed</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 salon-social">
+                    <i class="fab fa-facebook hover:text-gray-200 cursor-pointer"></i>
+                    <i class="fab fa-twitter hover:text-gray-200 cursor-pointer"></i>
+                    <i class="fab fa-instagram hover:text-gray-200 cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-primary-dark border border-t-primary text-white shadow-lg salon-nav">
+        <div class="container mx-auto px-2 sm:px-4">
+            <div class="flex flex-col sm:flex-row justify-between items-center h-auto sm:h-16 py-3 sm:py-0">
+                <div class="flex items-center salon-logo mb-3 sm:mb-0">
+                    <h1 class="text-xl sm:text-2xl font-bold">Body Craft</h1>
+                    <span class="text-xs sm:text-sm ml-2 opacity-75">Beauty Salon</span>
+                </div>
+                <div class="flex flex-wrap justify-center sm:justify-start space-x-2 sm:space-x-8 salon-menu mb-3 sm:mb-0">
+                    <a href="#" class="hover:text-gray-200 transition-colors text-xs sm:text-base py-1">HOME</a>
+                    <a href="#" class="hover:text-gray-200 transition-colors text-xs sm:text-base py-1">SERVICES</a>
+                    <a href="#" class="hover:text-gray-200 transition-colors text-xs sm:text-base py-1">OUR WORK</a>
+                    <a href="#" class="hover:text-gray-200 transition-colors text-xs sm:text-base py-1">ABOUT US</a>
+                    <a href="#" class="hover:text-gray-200 transition-colors text-xs sm:text-base py-1">PRICES</a>
+                    <a href="#" class="hover:text-gray-200 transition-colors text-xs sm:text-base py-1">CONTACT US</a>
+                </div>
+                <div class="flex items-center space-x-4 salon-phone">
+                    <i class="fas fa-phone text-sm"></i>
+                    <span class="font-semibold text-sm sm:text-base">555 222 53 42</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen bg-cover bg-center overflow-hidden salon-hero">
+        <div class="relative w-full h-full">
+            <!-- Slide 1 -->
+            <div class="slide absolute w-full h-full bg-cover bg-center "
+                style="background-image: url('images/bg3.jpg');">
+                <div class="absolute inset-0 flex items-center justify-center z-10">
+                    <div class="text-center text-white max-w-xs sm:max-w-md mx-4 salon-content hero">
+                        <div class="bg-black bg-opacity-50 p-4 sm:p-8 rounded-lg">
+                            <h2 class="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4">This Friday only</h2>
+                            <h3 class="text-xl sm:text-3xl font-semibold mb-2 sm:mb-4">20% off all makeups!</h3>
+                            <p class="text-sm sm:text-lg mb-4 sm:mb-6">Have time to take advantage of this limited offer!</p>
+                            <button class="bg-primary hover:bg-primary-dark text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded transition-colors salon-button text-sm sm:text-base">
+                                BOOK APPOINTMENT
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide absolute w-full h-full bg-cover bg-center "
+                style="background-image: url('images/bg2.jpg');">
+                <div class="absolute inset-0 flex items-center justify-center z-10">
+                    <div class="text-center text-white max-w-xs sm:max-w-md mx-4 salon-content">
+                        <div class="bg-black bg-opacity-50 p-4 sm:p-8 rounded-lg">
+                            <h2 class="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4">Weekend Special</h2>
+                            <h3 class="text-xl sm:text-3xl font-semibold mb-2 sm:mb-4">30% off all treatments!</h3>
+                            <p class="text-sm sm:text-lg mb-4 sm:mb-6">Pamper yourself with our exclusive weekend deals!</p>
+                            <button class="bg-primary hover:bg-primary-dark text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded transition-colors salon-button text-sm sm:text-base">
+                                BOOK APPOINTMENT
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide absolute w-full h-full bg-cover bg-center "
+                style="background-image: url('images/bg1.jpg');">
+                <div class="absolute inset-0 flex items-center justify-center z-10">
+                    <div class="text-center text-white max-w-xs sm:max-w-md mx-4 salon-content">
+                        <div class="bg-black bg-opacity-50 p-4 sm:p-8 rounded-lg">
+                            <h2 class="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4">New Services</h2>
+                            <h3 class="text-xl sm:text-3xl font-semibold mb-2 sm:mb-4">Premium spa packages!</h3>
+                            <p class="text-sm sm:text-lg mb-4 sm:mb-6">Experience luxury with our new premium services!</p>
+                            <button class="bg-primary hover:bg-primary-dark text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded transition-colors salon-button text-sm sm:text-base">
+                                BOOK APPOINTMENT
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation arrows -->
+        <button class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 text-white text-xl sm:text-2xl hover:text-gray-300 w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center bg-white bg-opacity-10 rounded-full transition-all duration-300 z-20 salon-nav-arrow" id="prevBtn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 text-white text-xl sm:text-2xl hover:text-gray-300 w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center bg-white bg-opacity-10 rounded-full transition-all duration-300 z-20 salon-nav-arrow" id="nextBtn">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Dots indicator -->
+        <div class="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20 salon-dots">
+            <div class="dot w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full cursor-pointer transition-all duration-300 active" data-slide="0"></div>
+            <div class="dot w-2 h-2 sm:w-3 sm:h-3 bg-white bg-opacity-50 rounded-full cursor-pointer transition-all duration-300" data-slide="1"></div>
+            <div class="dot w-2 h-2 sm:w-3 sm:h-3 bg-white bg-opacity-50 rounded-full cursor-pointer transition-all duration-300" data-slide="2"></div>
+        </div>
+    </section>
+
+
+    <!-- Services Section -->
+    <section class="services-hero py-8 sm:py-16 bg-gray-50 px-4 sm:px-20 lg:px-40">
+        <div class="container mx-auto px-2 sm:px-4">
+            <div class="services-header text-center mb-8 sm:mb-12">
+                <h2 class="services-title text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Our Services</h2>
+                <div class="services-divider w-16 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="services-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-9">
+                <!-- Service 1 -->
+                <div class="service-card text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fas fa-palette text-3xl sm:text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="service-title text-lg sm:text-xl font-semibold mb-3">Professional Makeup</h3>
+                    <div class="service-underline w-[50px] h-[5px] mx-auto mb-3 bg-primary"></div>
+                    <p class="service-description text-sm sm:text-base text-gray-600">With over ten years' experience in the industry, our certified therapists are skilled in all the latest techniques.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fas fa-spa text-3xl sm:text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="service-title text-lg sm:text-xl font-semibold mb-3">Painless Depilation</h3>
+                    <div class="service-underline w-[50px] h-[5px] mx-auto mb-3 bg-primary"></div>
+                    <p class="service-description text-sm sm:text-base text-gray-600">With over ten years' experience in the industry, our certified therapists are skilled in all the latest techniques.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fas fa-cut text-3xl sm:text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="service-title text-lg sm:text-xl font-semibold mb-3">Haircut and Styling</h3>
+                    <div class="service-underline w-[50px] h-[5px] mx-auto mb-3 bg-primary"></div>
+                    <p class="service-description text-sm sm:text-base text-gray-600">With over ten years' experience in the industry, our certified therapists are skilled in all the latest techniques.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fas fa-eye text-3xl sm:text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="service-title text-lg sm:text-xl font-semibold mb-3">Eyelash Extensions</h3>
+                    <div class="service-underline w-[50px] h-[5px] mx-auto mb-3 bg-primary"></div>
+                    <p class="service-description text-sm sm:text-base text-gray-600">With over ten years' experience in the industry, our certified therapists are skilled in all the latest techniques.</p>
+                </div>
+            </div>
+            <div class="services-grid-secondary grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mt-8 sm:mt-12">
+                <!-- Service 5 -->
+                <div class="service-card text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fas fa-female text-3xl sm:text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="service-title text-lg sm:text-xl font-semibold mb-3">Professional Stylists</h3>
+                    <div class="service-underline w-[50px] h-[5px] mx-auto mb-3 bg-primary"></div>
+                    <p class="service-description text-sm sm:text-base text-gray-600">With over ten years' experience in the industry, our certified therapists are skilled in all the latest techniques.</p>
+                </div>
+                <!-- Service 6 -->
+                <div class="service-card text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fas fa-leaf text-3xl sm:text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="service-title text-lg sm:text-xl font-semibold mb-3">Spa Procedures</h3>
+                    <div class="service-underline w-[50px] h-[5px] mx-auto mb-3 bg-primary"></div>
+                    <p class="service-description text-sm sm:text-base text-gray-600">With over ten years' experience in the industry, our certified therapists are skilled in all the latest techniques.</p>
+                </div>
+                <!-- Service 7 -->
+                <div class="service-card text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fas fa-heart text-3xl sm:text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="service-title text-lg sm:text-xl font-semibold mb-3">Regenerating Treatments</h3>
+                    <div class="service-underline w-[50px] h-[5px] mx-auto mb-3 bg-primary"></div>
+                    <p class="service-description text-sm sm:text-base text-gray-600">With over ten years' experience in the industry, our certified therapists are skilled in all the latest techniques.</p>
+                </div>
+                <!-- Service 8 -->
+                <div class="service-card text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fas fa-hand-paper text-3xl sm:text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="service-title text-lg sm:text-xl font-semibold mb-3">Manicure & Pedicure</h3>
+                    <div class="service-underline w-[50px] h-[5px] mx-auto mb-3 bg-primary"></div>
+                    <p class="service-description text-sm sm:text-base text-gray-600">With over ten years' experience in the industry, our certified therapists are skilled in all the latest techniques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-hero py-8 sm:py-16 bg-primary px-4 sm:px-20 lg:px-40">
+        <div class="container mx-auto px-2 sm:px-4">
+            <div class="portfolio-header text-center mb-8 sm:mb-12">
+                <h2 class="portfolio-title text-2xl sm:text-3xl font-bold text-white mb-4">Our recently work</h2>
+                <div class="portfolio-divider w-16 h-1 bg-white mx-auto"></div>
+            </div>
+            <div class="portfolio-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="portfolio-item overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Beauty work 1"
+                        class="w-full h-48 sm:h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="portfolio-item overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Beauty work 2"
+                        class="w-full h-48 sm:h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="portfolio-item overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Beauty work 3"
+                        class="w-full h-48 sm:h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="portfolio-item overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Beauty work 4"
+                        class="w-full h-48 sm:h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="portfolio-item overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Beauty work 5"
+                        class="w-full h-48 sm:h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="portfolio-item overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Beauty work 6"
+                        class="w-full h-48 sm:h-64 object-cover hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Pricing Section -->
+    <section class="py-8 sm:py-16 bg-gray-50">
+        <div class="container mx-auto px-2 sm:px-4">
+            <div class="text-center mb-8 sm:mb-12">
+                <h2 class="pricing-hero text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Our Prices</h2>
+                <div class="pricing-divider w-16 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="px-4 sm:px-20 lg:px-40 mx-auto">
+                <!-- Pricing tabs -->
+                <div class="pricing-tabs flex flex-wrap justify-center mb-6 sm:mb-8 space-x-2 sm:space-x-4 gap-y-2">
+                    <button class="bg-primary text-white px-3 sm:px-6 py-2 rounded-full font-semibold text-xs sm:text-sm">MAKE-UP</button>
+                    <button
+                        class="bg-gray-200 text-gray-700 px-3 sm:px-6 py-2 rounded-full font-semibold hover:bg-gray-300 text-xs sm:text-sm">MANICURE</button>
+                    <button
+                        class="bg-gray-200 text-gray-700 px-3 sm:px-6 py-2 rounded-full font-semibold hover:bg-gray-300 text-xs sm:text-sm">PEDICURE</button>
+                    <button
+                        class="bg-gray-200 text-gray-700 px-3 sm:px-6 py-2 rounded-full font-semibold hover:bg-gray-300 text-xs sm:text-sm">STONE
+                        THERAPY</button>
+                    <button
+                        class="bg-gray-200 text-gray-700 px-3 sm:px-6 py-2 rounded-full font-semibold hover:bg-gray-300 text-xs sm:text-sm">HAIRCUT</button>
+                </div>
+
+                <!-- Pricing list -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 sm:gap-x-20 gap-y-5">
+                    <div class="pricing-item flex justify-between items-center py-4 border-b border-gray-200">
+                        <div class="w-full">
+                            <div class="bg-primary text-white text-xs px-2 py-1 rounded w-12 mb-2">HOT</div>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+                                <h4 class="font-semibold text-base sm:text-lg mb-1 sm:mb-0">Sexy Candlelit Eyes</h4>
+                                <div class="hidden sm:block h-[1px] bg-primary flex-1 mx-4"></div>
+                                <span class="text-base sm:text-lg font-bold text-primary">$75.95</span>
+                            </div>
+                            <p class="text-sm sm:text-base text-gray-600 mt-2">If you've always wanted to be a rocker chic, start with these
+                                super-smoky eyes.</p>
+                        </div>
+                    </div>
+
+                    <div class="pricing-item flex justify-between items-center py-4 border-b border-gray-200">
+                        <div class="w-full">
+                            <div class="bg-primary text-white text-xs px-2 py-1 rounded w-12 mb-2">HOT</div>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+                                <h4 class="font-semibold text-base sm:text-lg mb-1 sm:mb-0">Tropical Teal Liner</h4>
+                                <div class="hidden sm:block h-[1px] bg-primary flex-1 mx-4"></div>
+                                <span class="text-base sm:text-lg font-bold text-primary">$122.00</span>
+                            </div>
+                            <p class="text-sm sm:text-base text-gray-600 mt-2">If you don't want to make such a statement, but still want to wear
+                                gorgeous blue shades, this is a great choice.</p>
+                        </div>
+                    </div>
+
+                    <div class="pricing-item flex justify-between items-center py-4 border-b border-gray-200">
+                        <div class="w-full">
+                            <div class="bg-primary text-white text-xs px-2 py-1 rounded w-12 mb-2">HOT</div>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+                                <h4 class="font-semibold text-base sm:text-lg mb-1 sm:mb-0">Bold Liner/Vibrant Lips</h4>
+                                <div class="hidden sm:block h-[1px] bg-primary flex-1 mx-4"></div>
+                                <span class="text-base sm:text-lg font-bold text-primary">$39.99</span>
+                            </div>
+                            <p class="text-sm sm:text-base text-gray-600 mt-2">Smoky eyes paired with dark, crimson lips. Amp up your look with
+                                some colorful shadows that match up with the bold lipstick.</p>
+                        </div>
+                    </div>
+
+                    <div class="pricing-item flex justify-between items-center py-4 border-b border-gray-200">
+                        <div class="w-full">
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+                                <h4 class="font-semibold text-base sm:text-lg mb-1 sm:mb-0">A Mod Smoky Eye</h4>
+                                <div class="hidden sm:block h-[1px] bg-primary flex-1 mx-4"></div>
+                                <span class="text-base sm:text-lg font-bold text-primary">$8.15</span>
+                            </div>
+                            <p class="text-sm sm:text-base text-gray-600 mt-2">What's the fun in helping your lipstick if you don't have thick,
+                                luscious lashes?</p>
+                        </div>
+                    </div>
+
+                    <div class="pricing-item flex justify-between items-center py-4 border-b border-gray-200">
+                        <div class="w-full">
+                            <div class="bg-primary text-white text-xs px-2 py-1 rounded w-12 mb-2">HOT</div>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+                                <h4 class="font-semibold text-base sm:text-lg mb-1 sm:mb-0">Slutty Rocker Eyes</h4>
+                                <div class="hidden sm:block h-[1px] bg-primary flex-1 mx-4"></div>
+                                <span class="text-base sm:text-lg font-bold text-primary">$50.10</span>
+                            </div>
+                            <p class="text-sm sm:text-base text-gray-600 mt-2">Mine is creating a risqué moment, so why not try out the color of
+                                the season for your makeup?</p>
+                        </div>
+                    </div>
+
+                    <div class="pricing-item flex justify-between items-center py-4 border-b border-gray-200">
+                        <div class="w-full">
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+                                <h4 class="font-semibold text-base sm:text-lg mb-1 sm:mb-0">Major Mint Eyes</h4>
+                                <div class="hidden sm:block h-[1px] bg-primary flex-1 mx-4"></div>
+                                <span class="text-lg sm:text-2xl font-bold text-primary">$9.99</span>
+                            </div>
+                            <p class="text-sm sm:text-base text-gray-600 mt-2">Smoky eyes are the epitome of sexy. An bold in color you don't know
+                                how to recreate this smoky eye.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-container py-6 sm:py-8 md:py-10 lg:py-12 bg-primary text-white text-center">
+        <div class="container mx-auto px-2 sm:px-4 md:px-6 lg:px-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-8 justify-center">
+            <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">Book your visit online and save 10%</h2>
+            <button
+                class="bg-white text-xs sm:text-sm md:text-base text-primary hover:bg-gray-100 font-bold py-2 sm:py-3 px-4 sm:px-6 md:px-8 rounded transition-colors whitespace-nowrap">
+                BOOK YOUR VISIT
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section bg-gray-900 text-white py-8 sm:py-10 md:py-12 px-2 sm:px-4 md:px-8 lg:px-12 xl:px-20">
+        <div class="container mx-auto px-2 sm:px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <!-- About -->
+                <div class="footer-column">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">About Our Saloon</h3>
+                    <p class="text-gray-300 mb-6 sm:mb-8 md:mb-10 text-sm sm:text-base leading-relaxed">With over ten years' experience in the industry, our
+                        certified
+                        therapists are skilled in all the latest techniques. We use only the best products and
+                        techniques, fully customized and tailored to your individual needs.</p>
+                    <div class="flex space-x-3 sm:space-x-4">
+                        <i class="social-icon fab fa-facebook text-lg sm:text-xl hover:text-primary cursor-pointer transition-colors"></i>
+                        <i class="social-icon fab fa-twitter text-lg sm:text-xl hover:text-primary cursor-pointer transition-colors"></i>
+                        <i class="social-icon fab fa-instagram text-lg sm:text-xl hover:text-primary cursor-pointer transition-colors"></i>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="footer-column">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Saloon Location</h3>
+                    <div class="text-gray-300 space-y-1 sm:space-y-2">
+                        <p class="text-sm sm:text-base">6000 Zurich, Switzerland</p>
+                        <p class="text-sm sm:text-base">Zukunftsstrasse 62</p>
+                        <p class="my-3 sm:my-4 text-sm sm:text-base">Phone: 555 222 53 42</p>
+                        <p class="text-sm sm:text-base">Email: info@bodycraft.salon.com</p>
+                    </div>
+                </div>
+
+                <!-- Instagram -->
+                <div class="footer-column">
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Instagram</h3>
+                    <div class="grid grid-cols-3 gap-1 sm:gap-2">
+                        <img src="images/abhay-sachan-ToY8nrxy-zU-unsplash.jpg" alt="Instagram 1"
+                            class="instagram-image w-full h-16 sm:h-20 md:h-24 object-cover rounded transition-transform hover:scale-105">
+                        <img src="images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg" alt="Instagram 2"
+                            class="instagram-image w-full h-16 sm:h-20 md:h-24 object-cover rounded transition-transform hover:scale-105">
+                        <img src="images/gurpreet-singh-N9hRh86R4T0-unsplash.jpg" alt="Instagram 3"
+                            class="instagram-image w-full h-16 sm:h-20 md:h-24 object-cover rounded transition-transform hover:scale-105">
+                        <img src="images/gurpreet-singh-Po-nggQqplE-unsplash.jpg" alt="Instagram 4"
+                            class="instagram-image w-full h-16 sm:h-20 md:h-24 object-cover rounded transition-transform hover:scale-105">
+                        <img src="images/gurpreet-singh-YL4xphQzZrw-unsplash.jpg" alt="Instagram 5"
+                            class="instagram-image w-full h-16 sm:h-20 md:h-24 object-cover rounded transition-transform hover:scale-105">
+                        <img src="images/talha-hadi-x1h4Nw0CwfY-unsplash.jpg" alt="Instagram 6"
+                            class="instagram-image w-full h-16 sm:h-20 md:h-24 object-cover rounded transition-transform hover:scale-105">
+                    </div>
+                </div>
+
+                <!-- Opening Times -->
+                <div class="footer-column relative">
+                    <h3 class="text-lg sm:text-xl font-bold px-3 sm:px-5 mx-2 sm:mx-5 bg-gray-900 w-40 sm:w-48 z-[9] relative">Opening Times</h3>
+                    <div class="opening-hours lg-absolute top-3 sm:top-4 w-56 sm:w-64 md:w-72 text-gray-300 space-y-1 sm:space-y-2 border border-white p-3 sm:p-4 text-sm sm:text-base">
+                        <div class="flex justify-between">
+                            <span>Monday</span>
+                            <span>08:00 - 17:30</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Tuesday</span>
+                            <span>08:00 - 17:30</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Wednesday</span>
+                            <span>08:00 - 17:30</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Thursday</span>
+                            <span>08:00 - 17:30</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Friday</span>
+                            <span>08:00 - 17:30</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Saturday</span>
+                            <span>08:00 - 17:30</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Sunday</span>
+                            <span>CLOSED</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400">
+                <p class="text-sm sm:text-base">&copy; 2024 Body Craft by Bollywood Saloon</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
